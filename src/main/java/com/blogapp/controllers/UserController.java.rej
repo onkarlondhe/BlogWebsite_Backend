@@ -1,0 +1,9 @@
+diff a/src/main/java/com/blogapp/controllers/UserController.java b/src/main/java/com/blogapp/controllers/UserController.java	(rejected hunks)
+@@ -14,7 +14,6 @@
+ import org.springframework.web.bind.annotation.RequestMapping;
+ import org.springframework.web.bind.annotation.RestController;
+ 
+-import com.blogapp.payloads.ApiResponse;
+ import com.blogapp.payloads.UserDto;
+ import com.blogapp.services.UserService;
+ 
