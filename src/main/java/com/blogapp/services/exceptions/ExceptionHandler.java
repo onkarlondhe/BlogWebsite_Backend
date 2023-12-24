@@ -9,7 +9,8 @@ import com.blogapp.payloads.ApiResponse;
 @RestControllerAdvice
 public class ExceptionHandler {
 
-	@org.springframework.web.bind.annotation.ExceptionHandler(ResourceNotFoundException.class)
+	@org.springframework.web.bind.annotation.
+	ExceptionHandler(ResourceNotFoundException.class)
 	public ResponseEntity<ApiResponse> resourceNotFoundExceptionHandler(ResourceNotFoundException ex){
 		
 		String message = ex.getMessage();

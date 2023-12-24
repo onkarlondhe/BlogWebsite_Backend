@@ -3,6 +3,7 @@ package com.blogapp.services.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,9 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepo userRepo;
+	
+	@Autowired
+	private ModelMapper modelMapper;
 	
 	@Override
 	public UserDto createUser(UserDto userDto) {
@@ -68,25 +72,26 @@ public class UserServiceImpl implements UserService {
 	}
 
 	private User dtoTOUser(UserDto userDto) {
-		User user = new User();
-		user.setUserId(userDto.getUserId());
-		user.setUserName(userDto.getUserName());
-		user.setUserEmail(userDto.getUserEmail());
-		user.setUserPassword(userDto.getUserPassword());
-		user.setAbout(userDto.getAbout());
+		User user = this.modelMapper.map(userDto, User.class);
+		
+//		user.setUserId(userDto.getUserId());
+//		user.setUserName(userDto.getUserName());
+//		user.setUserEmail(userDto.getUserEmail());
+//		user.setUserPassword(userDto.getUserPassword());
+//		user.setAbout(userDto.getAbout());
 		
 		return user;
 	}
 	
 	public UserDto userToDto(User user) {
 		
-		UserDto userDto = new UserDto();
+		UserDto userDto =  this.modelMapper.map(user, UserDto.class);
 		
-		userDto.setUserId(user.getUserId());
-		userDto.setUserName(user.getUserName());
-		userDto.setUserEmail(user.getUserEmail());
-		userDto.setUserPassword(user.getUserPassword());
-		userDto.setAbout(user.getAbout());
+//		userDto.setUserId(user.getUserId());
+//		userDto.setUserName(user.getUserName());
+//		userDto.setUserEmail(user.getUserEmail());
+//		userDto.setUserPassword(user.getUserPassword());
+//		userDto.setAbout(user.getAbout());
 		
 		return userDto;
 	}
