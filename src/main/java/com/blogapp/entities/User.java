@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Entity
@@ -14,9 +16,13 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userId;
 	
+	@NotNull
 	private String userName;
+	@Email
 	private String userEmail;
+	@NotNull
 	private String userPassword;
+	@NotNull
 	private String about;
 	
 }
